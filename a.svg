@@ -1,0 +1,5 @@
+<svg viewBox="0 0 1000 1000" xmlns="http://www.w3.org/2000/svg">
+<g transform="translate(0, 1000) scale(1, -1)">
+<path d="M200,350 L150,700 L-200,650 L-150,300 L200,350 L200,350 z" fill="none" stroke="black" stroke-width="1"/>
+</g>
+</svg>
