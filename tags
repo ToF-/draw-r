@@ -14,7 +14,7 @@ add	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn add(&mut se
 append_to_path_data	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^    pub fn append_to_path_data(&self, mut data: svg::node::element::path::Data) -> Data {$/;"	f
 main	/Users/christophethibaut/Coding/draw-r/src/main.rs	/^fn main() {$/;"	f
 new	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn new() -> Self {$/;"	f
-side_line	/Users/christophethibaut/Coding/draw-r/src/side_line.rs	/^pub fn side_line(line: &Line) -> Line {$/;"	f
+side_line	/Users/christophethibaut/Coding/draw-r/src/side_line.rs	/^pub fn side_line(line: &Line, factor: f64) -> Line {$/;"	f
 square	/Users/christophethibaut/Coding/draw-r/src/square.rs	/^pub fn square(side: &Line) -> Shape {$/;"	f
 to_path_data	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn to_path_data(&self) -> svg::node::element::path::Data {$/;"	f
 to_path_data	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^    pub fn to_path_data(&self) -> svg::node::element::path::Data {$/;"	f
