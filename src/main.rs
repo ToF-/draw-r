@@ -1,12 +1,12 @@
-use std::mem;
 use crate::layer::Layer;
 use crate::side_line::side_line;
 use line::Line;
 use point::Point;
+use rand::prelude::*;
 use shape::Shape;
 use square::square;
+use std::mem;
 use svg::node::element::tag::Group;
-use rand::prelude::*;
 
 mod layer;
 mod line;
@@ -28,9 +28,15 @@ fn main() {
     for i in 0..10 {
         let square = square(&line);
         layer.add(&square);
-        let initial = square.lines.choose(&mut rand::rng()).expect("can't choose a line");
-        let side = if rand::rng().random_bool(0.5) {
-            Line { from: initial.to, to: initial.from, }
+        let initial = square
+            .lines
+            .choose(&mut rand::rng())
+            .expect("can't choose a line");
+        let side = if rand::rng().random_bool(0.333) {
+            Line {
+                from: initial.to,
+                to: initial.from,
+            }
         } else {
             initial.clone()
         };
