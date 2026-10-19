@@ -22,7 +22,7 @@ impl Layer {
     pub fn intersect(&self, shape: &Shape) -> bool {
         for self_shape in &self.shapes {
             if shape.intersect(&self_shape) {
-                return true
+                return true;
             }
         }
         false

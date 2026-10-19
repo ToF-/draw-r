@@ -26,10 +26,10 @@ impl Shape {
         for self_line in &self.lines {
             for other_line in &other.lines {
                 if other_line.intersect(self_line) {
-                    return true
+                    return true;
                 }
             }
-        };
+        }
         false
     }
 }
