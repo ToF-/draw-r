@@ -18,6 +18,12 @@ impl Line {
         (o1 > 0.0 && o2 < 0.0 || o1 < 0.0 && o2 > 0.0)
             && (o3 > 0.0 && o4 < 0.0 || o3 < 0.0 && o4 > 0.0)
     }
+    pub fn reverse(&self) -> Self {
+        Self {
+            from: self.to,
+            to: self.from,
+        }
+    }
 }
 
 fn cross(a: Point, b: Point, c: Point) -> f64 {

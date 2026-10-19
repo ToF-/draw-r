@@ -19,6 +19,7 @@ intersect	/Users/christophethibaut/Coding/draw-r/src/line.rs	/^    pub fn inters
 intersect	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^    pub fn intersect(&self, other: &Self) -> bool {$/;"	f
 main	/Users/christophethibaut/Coding/draw-r/src/main.rs	/^fn main() {$/;"	f
 new	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn new() -> Self {$/;"	f
+reverse	/Users/christophethibaut/Coding/draw-r/src/line.rs	/^    pub fn reverse(&self) -> Self {$/;"	f
 right_triangle	/Users/christophethibaut/Coding/draw-r/src/right_triangle.rs	/^pub fn right_triangle(side: &Line, opp_side_length: f64) -> Shape {$/;"	f
 side_line	/Users/christophethibaut/Coding/draw-r/src/side_line.rs	/^pub fn side_line(line: &Line, factor: f64) -> Line {$/;"	f
 square	/Users/christophethibaut/Coding/draw-r/src/square.rs	/^pub fn square(side: &Line) -> Shape {$/;"	f
