@@ -12,10 +12,14 @@ Point	/Users/christophethibaut/Coding/draw-r/src/point.rs	/^pub type Point = (f6
 Shape	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^pub struct Shape {$/;"	s
 add	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn add(&mut self, shape: &Shape) {$/;"	f
 append_to_path_data	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^    pub fn append_to_path_data(&self, mut data: svg::node::element::path::Data) -> Data {$/;"	f
+cross	/Users/christophethibaut/Coding/draw-r/src/line.rs	/^fn cross(a: Point, b: Point, c: Point) -> f64 {$/;"	f
 distance	/Users/christophethibaut/Coding/draw-r/src/distance.rs	/^pub fn distance(line: &Line) -> f64 {$/;"	f
+intersect	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn intersect(&self, shape: &Shape) -> bool {$/;"	f
+intersect	/Users/christophethibaut/Coding/draw-r/src/line.rs	/^    pub fn intersect(&self, other: &Self) -> bool {$/;"	f
+intersect	/Users/christophethibaut/Coding/draw-r/src/shape.rs	/^    pub fn intersect(&self, other: &Self) -> bool {$/;"	f
 main	/Users/christophethibaut/Coding/draw-r/src/main.rs	/^fn main() {$/;"	f
 new	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn new() -> Self {$/;"	f
-right_triangle	/Users/christophethibaut/Coding/draw-r/src/rectangle_triangle.rs	/^pub fn right_triangle(side: &Line, opp_side_length: f64) -> Shape {$/;"	f
+right_triangle	/Users/christophethibaut/Coding/draw-r/src/right_triangle.rs	/^pub fn right_triangle(side: &Line, opp_side_length: f64) -> Shape {$/;"	f
 side_line	/Users/christophethibaut/Coding/draw-r/src/side_line.rs	/^pub fn side_line(line: &Line, factor: f64) -> Line {$/;"	f
 square	/Users/christophethibaut/Coding/draw-r/src/square.rs	/^pub fn square(side: &Line) -> Shape {$/;"	f
 to_path_data	/Users/christophethibaut/Coding/draw-r/src/layer.rs	/^    pub fn to_path_data(&self) -> svg::node::element::path::Data {$/;"	f
