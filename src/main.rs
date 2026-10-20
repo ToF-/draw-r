@@ -1,3 +1,4 @@
+use crate::distance::distance;
 use crate::layer::Layer;
 use crate::side_line::side_line;
 use line::Line;
@@ -21,55 +22,59 @@ mod translate;
 
 const MAX_X: usize = 1000;
 const MAX_Y: usize = 1000;
+const UNIT: f64 = 25.0;
 
 fn main() {
     let mut layer = Layer::new();
-    let line1 = Line {
+    let l1 = Line {
         from: (00.0, 500.0),
-        to: (00.0, 450.0),
+        to: (00.0, 500.0 - UNIT),
     };
-    let triangle1 = right_triangle(&line1, 1.0);
-    let side1 = triangle1.lines.last().unwrap().reverse();
-    let square1 = square(&side1);
-    layer.add(&triangle1);
-    layer.add(&square1);
-    let line2 = Line {
-        from: (105.0, 500.0),
-        to: (105.0, 450.0),
-    };
-    let triangle2 = right_triangle(&line2, 1.0);
-    let side2 = triangle2.lines.last().unwrap().reverse();
-    let triangle3 = right_triangle(&side2, 1.0 / 2.0_f64.sqrt());
-    let side3 = triangle3.lines.last().unwrap();
-    let square3 = square(&side3.reverse());
-    layer.add(&triangle2);
-    layer.add(&triangle3);
-    layer.add(&square3);
-    let line3 = Line {
-        from: (200.0, 500.0),
-        to: (200.0, 450.0),
-    };
-    let triangle4 = right_triangle(&line3, 2.0);
-    layer.add(&triangle4);
-    let side4 = triangle4.lines.last().unwrap();
-    let square4 = square(&side4.reverse());
-    layer.add(&square4);
+    let t1 = right_triangle(&l1, 1.0);
+    let s1 = square(&t1.lines.last().unwrap().reverse());
+    dbg!(distance(&s1.lines[0]) / UNIT, 2.0_f64.sqrt());
+    let l2 = s1.lines[0].clone().reverse();
+    let t2 = right_triangle(&l2, 1.0 / 2.0_f64.sqrt());
+    let s2 = square(&t2.lines.last().unwrap().reverse());
+    dbg!(distance(&s2.lines[0]) / UNIT, 3.0_f64.sqrt());
+    let l3 = s2.lines[3].clone();
+    let t3 = right_triangle(&l3, -2.0_f64.sqrt() / 3.0_f64.sqrt());
+    let s3 = square(&t3.lines.last().unwrap());
+    dbg!(distance(&s3.lines[0]) / UNIT, 5.0_f64.sqrt());
+    let l4 = s3.lines[3].clone();
+    let t4 = right_triangle(&l4, -2.0_f64.sqrt() / 5.0_f64.sqrt());
+    let s4 = square(&t4.lines.last().unwrap());
+    dbg!(distance(&s4.lines[0]) / UNIT, 7.0_f64.sqrt());
+    let l5 = s4.lines[3].clone();
+    let t5 = right_triangle(&l5, -2.0_f64 / 7.0_f64.sqrt());
+    let s5 = square(&t5.lines.last().unwrap());
+    dbg!(distance(&s5.lines[0]) / UNIT, 11.0_f64.sqrt());
+    let l6 = s5.lines[3].clone();
+    let t6 = right_triangle(&l6, -2.0_f64.sqrt() / 11.0_f64.sqrt());
+    let s6 = square(&t6.lines.last().unwrap());
+    dbg!(distance(&s6.lines[0]) / UNIT, 13.0_f64.sqrt());
+    let l7 = s6.lines[3].clone();
+    let t7 = right_triangle(&l7, -2.0_f64 / 13.0_f64.sqrt());
+    let s7 = square(&t7.lines.last().unwrap());
+    dbg!(distance(&s7.lines[0]) / UNIT, 17.0_f64.sqrt());
+    let l8 = s7.lines[1].clone();
+    let t8 = right_triangle(&l8, -2.0_f64.sqrt() / 17.0_f64.sqrt());
+    let s8 = square(&t8.lines.last().unwrap());
+    dbg!(distance(&s8.lines[0]) / UNIT, 19.0_f64.sqrt());
+    let l9 = s8.lines[2].clone();
+    let t9 = right_triangle(&l9, -2.0_f64 / 19.0_f64.sqrt());
+    let s9 = square(&t9.lines.last().unwrap());
+    dbg!(distance(&s9.lines[0]) / UNIT, 23.0_f64.sqrt());
+    layer.add(&s1);
+    layer.add(&s2);
+    layer.add(&s3);
+    layer.add(&s4);
+    layer.add(&s5);
+    layer.add(&s6);
+    layer.add(&s7);
+    layer.add(&s8);
+    layer.add(&s9);
 
-    let line4 = Line {
-        from: (450.0, 500.0),
-        to: (450.0, 450.0),
-    };
-    let triangle5 = right_triangle(&line4, 1.0);
-    let side5 = triangle5.lines.last().unwrap().reverse();
-    let triangle6 = right_triangle(&side5, 1.0 / 2.0_f64.sqrt()); 
-    let side6 = triangle6.lines.last().unwrap();
-    let triangle7 = right_triangle(&side6.reverse(), 2.0 / 3.0_f64.sqrt());
-    let side7 = triangle7.lines.last().unwrap();
-    let square5 = square(&side7.reverse());
-    layer.add(&triangle5);
-    layer.add(&triangle6);
-    layer.add(&triangle7);
-    layer.add(&square5);
     let path = svg::node::element::Path::new()
         .set("fill", "none")
         .set("stroke", "black")
